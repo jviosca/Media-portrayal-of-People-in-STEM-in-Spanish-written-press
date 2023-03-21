@@ -177,7 +177,8 @@ the exactly same F1-score (0.92) for the prediction of both genders.
 ## Deployment <a name="deployment"></a>
 
 A webapp has been deployed to Streamlit showing a summary of the approach 
-and the main findings. Visit it [here](www.app.com).
+and the main findings. Visit it 
+[here](https://people-in-stem-in-spanish-press.streamlit.app/).
 
 
 ## Installation <a name="installation"></a>
@@ -238,7 +239,7 @@ comparisons
 people in STEM being quoted in the sample of articles analyzed and 
 the gender assigned to those names. It is also used in the 'Statistics & 
 Visualizations' notebook to build charts and statistical comparisons
-- img: folder containing several charts
+- img: folder containing several charts shown in the webapp
 - config: folder containing files used to set up the python virtual 
 environment (environment.yml) and Spanish model in Spacy
 - app.py: code for the Streamlit webapp 
