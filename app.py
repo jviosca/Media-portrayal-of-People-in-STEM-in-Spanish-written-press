@@ -20,10 +20,8 @@ def show_image(path):
     None.
 
     '''
-    col1, col2, col3, col4, col5 = st.columns(5)
-    with col3:
-        image = Image.open(path)
-        st.image(image)
+    image = Image.open(path)
+    st.image(image)
     
     
 ###############
