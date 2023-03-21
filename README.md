@@ -182,9 +182,9 @@ and the main findings. Visit it [here](www.app.com).
 
 ## Installation <a name="installation"></a>
 
-Create a python virtual environment and install the required packages specified 
-in the requirements.txt file (including a dedicated python interpreter 
-to avoid dependencies conflicts when installing Spacy). 
+To recreate the python virtual environment, use the file environment.yml. 
+Include a dedicated python interpreter 
+to avoid dependencies conflicts when installing Spacy. 
 The only noteworthy customization is the use of a Spanish Spacy model 
 ([es_core_news_lg](https://spacy.io/models/es#es_core_news_lg)) 
 for the NLP process and the python library used to automatically assign 
@@ -239,6 +239,10 @@ people in STEM being quoted in the sample of articles analyzed and
 the gender assigned to those names. It is also used in the 'Statistics & 
 Visualizations' notebook to build charts and statistical comparisons
 - img: folder containing several charts
+- environment.yml: file created with conda export to recreate the virtual 
+environment used in this project
+- app.py: code for the Streamlit webapp 
+- requirements.txt: requirements to install the webapp in Streamlit cloud
 
 
 ## Licensing<a name="licensing"></a>
