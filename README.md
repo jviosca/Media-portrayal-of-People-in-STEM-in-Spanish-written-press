@@ -23,8 +23,8 @@ STEM (Science, Technology, Engineering and Mathematics) and related academic
 fields in Spanish press news articles. The main goal is to analyze gender 
 balance/bias in Spanish media reporting writen quotes from experts 
 working in STEM fields. 
-The novelty of this work is that it uses an AI-powered text 
-analysis approach that can be easily scaled-up to monitor in real time 
+The novelty of this work is that it uses an **AI-powered text 
+analysis approach** that can be easily scaled-up to monitor in real time 
 gender balance in quotes from experts and other content aspects with 
 societal implications.
 
@@ -63,8 +63,8 @@ sustain a big data approach.
 
 [SciRide NewsMine](http://sciride.org/) 
 is a huge and recently released dataset of news articles that includes several 
-newspapers from Spain. Here, I analyze a random sample of 26.000 articles 
-published between 2016 and 2020 of 4 major Spanish newspapers 
+newspapers from Spain. Here, I analyze a random sample of **26.000 articles 
+published between 2016 and 2020 of 4 major Spanish newspapers** 
 (ABC, El País, El Mundo and La Vanguardia). The sample is randomized to 
 include the same number of articles for each year and newspaper.
 
@@ -137,9 +137,10 @@ differ between the 4 newspapers analyzed.
 
 ## Discussion <a name="discussion"></a>
 
-The data presented here suggests a strong men-favouring gender bias in 
-the representation of people working in STEM in Spanish writen 
-press quotes. Moreover, despite a heightened awareness about the issue of gender
+The data presented here suggests that Spanish writen press quotes 
+portray a **strong men-favouring gender bias in 
+the representation of people working in STEM**. Moreover, despite a 
+heightened awareness about the issue of gender
 bias in academia and other professional fields that is occuring in 
 recent years, this data does not suggest that such 
 gender bias is being effectively tackled when it comes to media portrayal 
@@ -176,8 +177,8 @@ the exactly same F1-score (0.92) for the prediction of both genders.
 
 ## Deployment <a name="deployment"></a>
 
-A webapp has been deployed to Streamlit showing a summary of the approach 
-and charts with the main findings. Visit it 
+A webapp has been deployed to Streamlit cloud showing a summary of the 
+approach and charts with the main findings. Visit it 
 [here](https://people-in-stem-in-spanish-press.streamlit.app/).
 
 
@@ -193,10 +194,12 @@ gender to NER-collected human names
 ([Gender-Guesser](https://pypi.org/project/gender-guesser/)).
 
 To create a python virtual environment (in Windows):
-1.- open cmd
-2.- cd project folder location
-3.- conda create --prefix ./envs
-4.- activate ./envs
+<ol>
+<li>open cmd</li>
+<li>cd project folder location</li>
+<li>conda create --prefix ./envs</li>
+<li>activate ./envs</li>
+</ol>
 
 To run Jupyter notebook inside the created virtual environment, see 
 [here](https://janakiev.com/blog/jupyter-virtual-envs/).
@@ -205,23 +208,23 @@ To run Jupyter notebook inside the created virtual environment, see
 ## File Descriptions <a name="files"></a>
 
 This repo contains the following folders and files:
-- NLP.ipynb: jupyter notebook containing the code used to detect sentences 
+- `NLP.ipynb`: jupyter notebook containing the code used to detect sentences 
 quoting people in STEM and to collect human names (NER) in those sentences.
 It also curates the dataset of collected names, assigns gender to those 
 names and evaluates gender assignment of names and article classification 
 (i.e., if the article contains at least 1 quote from a STEM person, it is 
 considered as STEM related)
-- Statistics & Visualizations.ipynb: jupyter notebook containing the code
+- `Statistics & Visualizations.ipynb`: jupyter notebook containing the code
 used to run statistical comparisons and build charts
-- article_classification_evaluation.xlsx: excel file containing the predicted 
+- `article_classification_evaluation.xlsx`: excel file containing the predicted 
 and manually annotated article category (STEM related or not) for a ramdom 
 sample of 100 articles
-- gender_classification_evaluation.xlsx: excel file containing the predicted 
+- `gender_classification_evaluation.xlsx`: excel file containing the predicted 
 and manually annotated gender category for a random sample of 150 names 
 collected by the NLP pipeline
 - data: folder containing several csv files that come from the SciRide 
 NewsMine dataset or are generated through the analysis. The files are:
-- sample50k_abc_mun_pai_van_wrangled_downsampled (part1,part2,part3): 
+- `sample50k_abc_mun_pai_van_wrangled_downsampled.csv (part1,part2,part3)`: 
 contains the random sample of 26.000 articles from 4 newspapers
 used in the analysis. It comes from an initial sample of 50.000 articles, 
 which contained an unequal number of articles for the different years 
@@ -230,19 +233,19 @@ years and sources. 1300 articles was the highest number of the less
 frequent source-year subgroup and was then chosen as the target amount for 
 downsampling. The dataset was splitted in 3 parts to keep file 
 sizes within the limits allowed by GitHub.
-- sample50k_links.csv: contains the links to all articles in the dataset
-- sample50k_articles_stats.csv: processed dataset including the number of
+- `sample50k_links.csv`: contains the links to all articles in the dataset
+- `sample50k_articles_stats.csv`: processed dataset including the number of
 women and men in STEM being quoted in each article, used in the 
 'Statistics & Visualizations' notebook to build charts and statistical 
 comparisons
-- sample50k_people_stats.csv: contains a dataframe with the names of 
+- `sample50k_people_stats.csv`: contains a dataframe with the names of 
 people in STEM being quoted in the sample of articles analyzed and 
 the gender assigned to those names. It is also used in the 'Statistics & 
 Visualizations' notebook to build charts and statistical comparisons
 - img: folder containing several charts shown in the webapp
 - config: folder containing files used to set up the python virtual 
-environment (environment.yml) and Spanish model in Spacy
-- app.py: code for the Streamlit webapp 
+environment ( `environment.yml`) and Spanish model in Spacy
+- `app.py`: code for the Streamlit webapp 
 
 
 ## Licensing<a name="licensing"></a>
