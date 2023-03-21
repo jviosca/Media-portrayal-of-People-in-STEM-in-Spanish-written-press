@@ -79,16 +79,31 @@ a gender using a python library called
 [Gender-Guesser](https://pypi.org/project/gender-guesser/).
 3 different strategies are followed to avoid collecting the name of
 the same person more than once in the same article (see "NLP" notebook).
-To evaluate the accuracy of the analysis, both the gender assignment and
+To evaluate the quality of the analysis, both the gender assignment and
 the keyword-based classification of articles (as STEM related or not STEM
 related) are measured by manually reviewing a sample of 100 articles and
 150 names. The predicted category is then compared with the true (manually 
 assigned) category to generate a classification report including accuracy, 
 precision and recall for both article classification (STEM vs no-STEM) and
-gender assignment.
+gender assignment. Given the unbalanced nature of the dataset in both 
+classification tasks (i.e. the low proportion of articles quoting STEM 
+people and, presumably, the lower proportion of women quoted among the total 
+amount of STEM poeple quoted, more about this below), a F1 maximizing 
+approach has been pursued.
 The proportion of STEM women and men quoted is then compared using 
 Chi-square statistical tests. When multiple comparisons are done, a 
 Bonferroni corrected alpha is used.
+
+**A note about optimization**:
+The keyword-based approach to article classification explained above 
+included a 2-step process consisting on 'opt-in' keywords + 'opt-out' 
+keywords. Only if the 'opt-in' keywords were found in a sentence, 
+and if no 'opt-out' keywords were found in the same sentence, 
+NER collection of human names was done 
+on such sentence. Such a 2-step process was used because an earlier approach 
+based solely on opt-in keywords gave a poor classification performance 
+(see below). 'Opt-out' keywords were aimed to exclude sports, politics, crime 
+investigations, culture, artists, and other non-STEM acitivities.
 
 ## Results<a name="results"></a>
 
@@ -104,6 +119,13 @@ in STEM):
 - Recall (No STEM): 0.81
 - F1-score (STEM): 0.84
 - F1-score (No STEM): 0.86
+
+The above results are obtained when using the 2-step 'opt-in' + 'opt-out' 
+keyword-based sentence selection explained in the methodology section. 
+An earlier 1-step approach based solely on 'opt-in' keywords yielded a 
+similar high recall but a much lower precision for the STEM article class 
+(around 50% of false positive rate; while with the 2-step approach finally 
+adopted, the false positive rate is around 20%).
 
 At the level of gender assignment to names, the approach has the following 
 classification performance:
@@ -135,7 +157,7 @@ The number of articles that mention STEM women or men does not statistically
 differ between the 4 newspapers analyzed.
 
 
-## Discussion <a name="discussion"></a>
+## Discussion<a name="discussion"></a>
 
 The data presented here suggests that Spanish writen press quotes 
 portray a **strong men-favouring gender bias in 
@@ -160,19 +182,21 @@ where gender bias could be higher than in STEM.
 This results from using keywords such as "investigation" 
 ("investigación" in Spanish, translation of "research" in English), 
 which is a major keyword used to identify articles 
-quoting people in STEM. Nevertheless, the overall accuracy of the approach 
-presented here (0.85) is reasonably high to support the conclusion that a 
-prominent gender bias in press articles quoting people in STEM is indeed 
-occuring, as already reported before in published research.
+quoting people in STEM. Nevertheless, the overall accuracy, precision and 
+recall of the approach presented here is reasonably high to support the 
+conclusion that a prominent gender bias in press articles quoting 
+people in STEM is indeed occuring, as already reported before in published research.
 - The average number of people quoted per STEM quoting article is low (0.4 
 for women, 1.3 for men). This suggests that some quotes are being missed 
-by the collection process. To correct this, a machine learning model 
-could be developed in the future to more reliably identify articles that 
-quote people in STEM, to complement or replace the keyword-based approach 
-used here.
+by the collection process. 
 - While precision of gender prediction of women names is lower than for 
 men names, recall of gender prediction of women names is higher, resulting in 
 the exactly same F1-score (0.92) for the prediction of both genders. 
+To address all the above points and to **improve the implemented solution** 
+presented here, a machine learning model could be developed in the future 
+so to more reliably identify articles that quote people in STEM, 
+so to complement or replace the rule-based categorization
+(keyword-based) approach used here.
 
 
 ## Deployment <a name="deployment"></a>
@@ -184,8 +208,9 @@ approach and charts with the main findings. Visit it
 
 ## Installation <a name="installation"></a>
 
-To recreate the python virtual environment, use the file environment.yml. 
-Include a dedicated python interpreter 
+To recreate the python virtual environment, use the environment.yml 
+file found in the `config` folder. 
+Include a dedicated python interpreter in the environment 
 to avoid dependencies conflicts when installing Spacy. 
 The only noteworthy customization is the use of a Spanish Spacy model 
 ([es_core_news_lg](https://spacy.io/models/es#es_core_news_lg)) 
@@ -244,7 +269,10 @@ the gender assigned to those names. It is also used in the 'Statistics &
 Visualizations' notebook to build charts and statistical comparisons
 - img: folder containing several charts shown in the webapp
 - config: folder containing files used to set up the python virtual 
-environment ( `environment.yml`) and Spanish model in Spacy
+environment ( `environment.yml`) and Spanish model in Spacy. A requirements 
+file has been removed from the root repository as it gives conflicts 
+when installing the webapp on Streamlit cloud (it also points to the 
+same GitHub repository) 
 - `app.py`: code for the Streamlit webapp 
 
 
