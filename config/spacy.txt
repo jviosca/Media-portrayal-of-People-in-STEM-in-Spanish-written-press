@@ -1,0 +1,5 @@
+Install Spacy in a fresh environment with dedicated python interpreter
+To download models, open cmd as administrator and type:
+python -m spacy download <model name>
+
+For NER, be aware that not all models offer it

@@ -239,10 +239,9 @@ people in STEM being quoted in the sample of articles analyzed and
 the gender assigned to those names. It is also used in the 'Statistics & 
 Visualizations' notebook to build charts and statistical comparisons
 - img: folder containing several charts
-- environment.yml: file created with conda export to recreate the virtual 
-environment used in this project
+- config: folder containing files used to set up the python virtual 
+environment (environment.yml) and Spanish model in Spacy
 - app.py: code for the Streamlit webapp 
-- requirements.txt: requirements to install the webapp in Streamlit cloud
 
 
 ## Licensing<a name="licensing"></a>

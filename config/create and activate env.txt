@@ -1,0 +1,13 @@
+1.- open cmd (windows)
+2.- cd project folder location
+3.- conda create --prefix ./envs
+4.- activate ./envs
+
+To install packages from Spyder:
+ conda install <package> --prefix ./envs
+
+To list installed packages from Spyder:
+conda list --prefix ./envs
+
+To use Jupyter notebook inside virtual environment:
+https://janakiev.com/blog/jupyter-virtual-envs/
