@@ -192,6 +192,7 @@ by the collection process.
 - While precision of gender prediction of women names is lower than for 
 men names, recall of gender prediction of women names is higher, resulting in 
 the exactly same F1-score (0.92) for the prediction of both genders. 
+
 To address all the above points and to **improve the implemented solution** 
 presented here, a machine learning model could be developed in the future 
 so to more reliably identify articles that quote people in STEM, 
