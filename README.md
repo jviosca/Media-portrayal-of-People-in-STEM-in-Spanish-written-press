@@ -177,7 +177,7 @@ the exactly same F1-score (0.92) for the prediction of both genders.
 ## Deployment <a name="deployment"></a>
 
 A webapp has been deployed to Streamlit showing a summary of the approach 
-and the main findings. Visit it 
+and charts with the main findings. Visit it 
 [here](https://people-in-stem-in-spanish-press.streamlit.app/).
 
 
